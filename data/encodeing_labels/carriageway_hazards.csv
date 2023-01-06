@@ -1,0 +1,8 @@
+,code
+Any animal in carriageway (except ridden horse),0
+None,1
+Other object on road,2
+Pedestrian in carriageway - not injured,3
+Previous accident,4
+Vehicle load on road,5
+unknown (self reported),6

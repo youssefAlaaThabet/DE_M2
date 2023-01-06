@@ -1,0 +1,11 @@
+,code
+Crossroads,0
+Mini-roundabout,1
+More than 4 arms (not roundabout),2
+Not at junction or within 20 metres,3
+Other junction,4
+Private drive or entrance,5
+Roundabout,6
+Slip road,7
+T or staggered junction,8
+unknown (self reported),9

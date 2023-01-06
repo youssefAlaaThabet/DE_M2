@@ -1,0 +1,9 @@
+,code
+Fine + high winds,0
+Fine no high winds,1
+Fog or mist,2
+Other,3
+Raining + high winds,4
+Raining no high winds,5
+Snowing + high winds,6
+Snowing no high winds,7

@@ -1,0 +1,10 @@
+,code
+Auto signal part defective,0
+Auto traffic signal - out,1
+Mud,2
+None,3
+Oil or diesel,4
+Road sign or marking defective or obscured,5
+Road surface defective,6
+Roadworks,7
+unknown (self reported),8
