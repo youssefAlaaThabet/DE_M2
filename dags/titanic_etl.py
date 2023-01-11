@@ -6,8 +6,11 @@ import sys
 sys.path.append("/opt/airflow/data/")
 from Data_Engineering_M1 import M1
 from Data_Engineering_M1 import M2
+from Data_Engineering_M1 import M3
+from Viz_with_dash import M4
 
-
+import matplotlib.pyplot as plt
+import plotly.express as px 
 import pandas as pd
 import numpy as np
 # For Label Encoding
@@ -62,31 +65,8 @@ def label_encoding(df,col):
     return df
 def load_to_csv(df,filename):
     df.to_csv(filename,index=False)
-def create_dashboard(filename):
-    df = pd.read_csv(filename)
-    app = dash.Dash()
-    app.layout = html.Div(
-    children=[
-        html.H1(children="2017_Accidents_UK dataset",),
-        html.P(
-            children="Age vs Survived Titanic dataset",
-        ),
-        dcc.Graph(
-            figure={
-                "data": [
-                    {
-                        "x": df["Age"],
-                        "y": df["Survived"],
-                        "type": "lines",
-                    },
-                ],
-                "layout": {"title": "Age vs Survived"},
-            },
-        )
-    ]
-)
-    app.run_server(host='0.0.0.0')
-    print('dashboard is successful and running on port 8000')
+
+
 
 def load_to_postgres(filename1,filename2): 
     df = pd.read_csv(filename1)
@@ -139,17 +119,15 @@ with DAG(
      )
     create_dashboard_task= PythonOperator(
           task_id = 'create_dashboard_task',
-          python_callable = create_dashboard,
+          python_callable = M4,
           op_kwargs={
-              "filename": "/opt/airflow/data/final.csv"
+              "filename": "/opt/airflow/data/2017_Accidents_UK.csv"
           },
       )
     
 
 
     extract_clean_task >> extract_figures_and_plots >> load_to_postgres_task >> create_dashboard_task
-
-    
     
 
 
