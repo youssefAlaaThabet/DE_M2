@@ -1,10 +1,12 @@
 import plotly.express as px 
-from dash import Dash, dcc, html, Input, Output
+import dash
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
 import math
+import dash_core_components as dcc
+import dash_html_components as html
 
 
 def M4():
@@ -35,10 +37,8 @@ def M4():
         return fig
 
 
-    # In[5]:
 
-
-    app = Dash()
+    app = dash.Dash()
     app.layout = html.Div([
     
         html.H1("Web Application Dashboards with Dash", style={'text-align': 'center'}),
